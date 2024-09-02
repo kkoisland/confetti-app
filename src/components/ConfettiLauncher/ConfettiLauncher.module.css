@@ -1,0 +1,45 @@
+/* 
+.launcher {
+  text-align: center;
+  padding: 20px;
+  background-color: #f4f4f8;
+} */
+
+.launcher {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.light .launcher {
+  background-color: #ffffff;
+  color: #000;
+}
+
+.dark .launcher {
+  background-color: #424242;
+  color: #fff;
+}
+
+.launcher h2 {
+  color: #333;
+}
+
+.launcher label,
+.launcher span {
+  margin-right: 10px;
+}
+
+.launcher input[type="range"] {
+  width: 300px;
+}
+
+.launcher button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
