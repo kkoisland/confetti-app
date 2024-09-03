@@ -9,3 +9,15 @@
   background-color: #333;
   color: #fff;
 }
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+button {
+  margin: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}

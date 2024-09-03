@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
+import confetti from 'canvas-confetti';
 import styles from './ConfettiLauncher.module.css';
 
 const ConfettiLauncher = () => {
     const [quantity, setQuantity] = useState(100);
 
-    const handleQuantityChange = (event) => {
-        setQuantity(event.target.value);
+    const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setQuantity(parseInt(event.target.value, 10));
     };
     
-    const launchConfetti = () => {
-      console.log('Launching confetti with quantity:', quantity);
-      // ここにコンフェッティ発射のロジックを追加
-  };
+  const launchConfetti = () => {
+    confetti({
+      particleCount: quantity,
+      spread: 70,
+      // origin: { y: 0.6 } // original
+      origin: { x: 0.5, y: 0.8 }  // 画面の中央より下の位置から発射
+  });
+};
+
 
     return (
         <div className={styles.launcher}>
