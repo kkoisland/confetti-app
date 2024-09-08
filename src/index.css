@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  width: 100vw;  /* ビューポートの幅全体 */
+  width: 100vw; /* ビューポートの幅全体 */
   height: 100vh; /* ビューポートの高さ全体 */
   background-color: #fff; /* ライトモードのデフォルト背景色 */
 }

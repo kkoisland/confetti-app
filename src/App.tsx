@@ -1,24 +1,28 @@
 import { useState, useEffect } from 'react';
 import ConfettiLauncher from './components/ConfettiLauncher/ConfettiLauncher';
-import './App.css'; 
+import './App.css';
 
 function App() {
-    const [theme, setTheme] = useState(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  const [theme, setTheme] = useState(
+    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light'
+  );
 
-    useEffect(() => {
-      document.body.className = theme;  // 'light' or 'dark'
+  useEffect(() => {
+    document.body.className = theme; // 'light' or 'dark'
   }, [theme]);
 
-    const toggleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
-    };
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
-    return (
-        <div className={`App ${theme}`}>
-            <button onClick={toggleTheme}>Toggle Theme</button>
-            <ConfettiLauncher />
-        </div>
-    );
+  return (
+    <div className={`App ${theme}`}>
+      <button onClick={toggleTheme}>Toggle Theme</button>
+      <ConfettiLauncher />
+    </div>
+  );
 }
 
 export default App;
