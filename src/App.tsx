@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-import ConfettiLauncher from './components/ConfettiLauncher/ConfettiLauncher';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+// import ConfettiLauncher from './components/ConfettiLauncher/ConfettiLauncher';
+import ConfettiLauncherPage from './pages/ConfettiLauncherPage';
+import BackgroundAnimationPage from './pages/BackgroundAnimationPage';
+import ScrollAnimationPage from './pages/ScrollAnimationPage';
+import InteractiveGalleryPage from './pages/InteractiveGalleryPage';
 import './App.css';
 
 function App() {
@@ -18,12 +23,41 @@ function App() {
   };
 
   return (
-    <div className={`App ${theme}`}>
+    <BrowserRouter>
+      {/* ナビゲーションバー */}
+      <nav>
+        <ul>
+          <li>
+            <Link to="/confetti">Confetti Launcher</Link>
+          </li>
+          <li>
+            <Link to="/background">Background Animation</Link>
+          </li>
+          <li>
+            <Link to="/scroll">Scroll Animation</Link>
+          </li>
+          <li>
+            <Link to="/gallery">Interactive Gallery</Link>{' '}
+          </li>
+        </ul>
+      </nav>
+
+      {/* テーマ切り替えボタン */}
       <button onClick={toggleTheme} className={`theme-toggle-button ${theme}`}>
         {theme === 'light' ? '☼' : '🌙'}
       </button>
-      <ConfettiLauncher />
-    </div>
+
+      {/* ページルーティング */}
+      <div className={`App ${theme}`}>
+        <Routes>
+          <Route path="/confetti" element={<ConfettiLauncherPage />} />
+          <Route path="/background" element={<BackgroundAnimationPage />} />
+          <Route path="/scroll" element={<ScrollAnimationPage />} />
+          <Route path="/gallery" element={<InteractiveGalleryPage />} />
+          <Route path="/" element={<ConfettiLauncherPage />} /> {/* デフォルトページ */}
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
