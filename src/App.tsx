@@ -19,7 +19,9 @@ function App() {
 
   return (
     <div className={`App ${theme}`}>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <button onClick={toggleTheme} className={`theme-toggle-button ${theme}`}>
+        {theme === 'light' ? '☼' : '🌙'}
+      </button>
       <ConfettiLauncher />
     </div>
   );

@@ -21,3 +21,32 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+
+.theme-toggle-button {
+  margin: 20px;
+  padding: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%; /* ボタンを丸くする */
+  width: 60px; /* ボタンのサイズ */
+  height: 60px; /* ボタンのサイズ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  position: fixed; /* ボタンを右端に固定 */
+  top: 20px; /* 画面の上から20pxの位置 */
+  right: 20px; /* 画面の右端から20pxの位置 */
+  z-index: 100; /* 他の要素よりも前面に配置 */
+}
+
+.theme-toggle-button.light {
+  background-color: #fff;
+  color: #333;
+}
+
+.theme-toggle-button.dark {
+  background-color: #333;
+  color: #fff;
+}
