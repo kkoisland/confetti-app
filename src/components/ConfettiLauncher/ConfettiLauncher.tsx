@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import styles from './ConfettiLauncher.module.css';
 
-const ConfettiLauncher = () => {
+interface ConfettiLauncherProps {
+  onLaunch: (quantity: number) => void;
+}
+
+const ConfettiLauncher = ({ onLaunch }: ConfettiLauncherProps) => {
   const [quantity, setQuantity] = useState(100);
 
   const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,6 +20,7 @@ const ConfettiLauncher = () => {
       // origin: { y: 0.6 } // original
       origin: { x: 0.5, y: 0.8 }, // 画面の中央より下の位置から発射
     });
+    onLaunch(quantity);
   };
 
   return (
