@@ -26,7 +26,7 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
       </nav>
       <button
         onClick={toggleTheme}
-        className={`${styles.themeToggleButton} ${theme === 'light' ? styles.light : styles.dark}`}
+        className={`${styles.themeToggleButton} ${theme === 'dark' ? 'theme-dark' : 'theme-light'}`}
       >
         {theme === 'light' ? '☼' : '🌙'}
       </button>

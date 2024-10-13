@@ -25,8 +25,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* ページルーティング */}
-      <div className={`App ${theme}`}>
+      s
+      <div className={`App ${theme === 'dark' ? 'theme-dark' : 'theme-light'} shared-styles`}>
         <Header theme={theme} toggleTheme={toggleTheme} />
         <Routes>
           <Route path="/confetti" element={<ConfettiLauncherPage />} />
@@ -35,8 +35,8 @@ function App() {
           <Route path="/gallery" element={<InteractiveGalleryPage />} />
           <Route path="/" element={<ConfettiLauncherPage />} /> {/* デフォルトページ */}
         </Routes>
+        <Footer theme={theme} />
       </div>
-      <Footer />
     </BrowserRouter>
   );
 }

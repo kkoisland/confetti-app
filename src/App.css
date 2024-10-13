@@ -1,13 +1,21 @@
-/* ライトモードのデフォルトスタイル */
-.App {
-  background-color: #fff;
-  color: #333;
-  text-align: center;
-  padding: 20px;
+:root {
+  --text-color-light: #333;
+  --text-color-dark: #fff;
 }
 
-/* ダークモードのスタイル */
-.App.dark {
+.theme-light {
+  --text-color: var(--text-color-light);
+  background-color: #fff;
+  color: var(--text-color-light);
+}
+
+.theme-dark {
+  --text-color: var(--text-color-dark);
   background-color: #333;
-  color: #fff;
+  color: var(--text-color-dark);
+}
+
+.shared-styles {
+  text-align: center;
+  padding: 20px;
 }

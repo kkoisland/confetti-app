@@ -20,7 +20,6 @@ const ConfettiLauncher = () => {
 
   return (
     <div className={styles.launcher}>
-      <h2>Confetti Launcher</h2>
       <div>
         <label htmlFor="quantity">Quantity:</label>
         <input

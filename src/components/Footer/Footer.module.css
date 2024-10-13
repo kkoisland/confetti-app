@@ -1,6 +1,4 @@
 .footer {
-  background-color: var(--footer-bg-color);
-  color: var(--footer-text-color);
   text-align: center;
   padding: 20px;
   position: fixed;

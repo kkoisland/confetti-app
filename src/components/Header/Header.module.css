@@ -1,16 +1,16 @@
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center; /* ボタンとナビゲーションを同じ高さに揃える */
   padding: 10px 20px;
-  background-color: var(--nav-bg-color);
 }
-/* ナビゲーションリンクのスタイル */
+
 .nav {
+  flex-grow: 1;
+  flex-shrink: 1;
   display: flex;
   justify-content: center; /* ナビゲーションリンクを中央揃え */
   padding: 10px 20px;
-  background-color: var(--nav-bg-color);
 }
 .navLinks {
   list-style: none;
@@ -47,18 +47,5 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease;
-  position: fixed; /* ボタンを右端に固定 */
-  top: 20px; /* 画面の上から20pxの位置 */
-  right: 20px; /* 画面の右端から20pxの位置 */
-  z-index: 100; /* 他の要素よりも前面に配置 */
-}
-
-.themeToggleButton.light {
-  background-color: #fff;
-  color: #333;
-}
-
-.themeToggleButton.dark {
-  background-color: #333;
-  color: #fff;
+  position: relative;
 }
