@@ -1,0 +1,10 @@
+/* BackgroundAnimation.module.css */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: background-position 0.1s ease; /* 背景の位置変更をスムーズに */
+  z-index: -1; /* 他の要素の背面に配置 */
+}

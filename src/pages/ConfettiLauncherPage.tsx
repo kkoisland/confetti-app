@@ -3,7 +3,7 @@ import ConfettiLauncher from '../components/ConfettiLauncher/ConfettiLauncher';
 const ConfettiLauncherPage = () => {
   return (
     <div>
-      <h1>Confetti Launcher</h1>
+      <h2>Slide to change the amount of confetti!</h2>
       <ConfettiLauncher />
     </div>
   );

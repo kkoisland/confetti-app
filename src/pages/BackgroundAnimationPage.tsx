@@ -1,8 +1,10 @@
+import BackgroundAnimation from '../components/BackgroundAnimation/BackgroundAnimation';
+
 const BackgroundAnimationPage = () => {
   return (
     <div>
-      <h1>Background Animation</h1>
-      <p>背景アニメーションを追加</p>
+      <h2>Move your mouse and give it a click!</h2>
+      <BackgroundAnimation />
     </div>
   );
 };
