@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import styles from './BackgroundAnimation.module.css';
 
+interface BackgroundAnimationProps {
+  quantity: number;
+}
+
 // ランダムな色を生成する関数
 const getRandomColor = () => {
   const letters = '0123456789ABCDEF'; // 16進数の数字とアルファベット
@@ -13,7 +17,8 @@ const getRandomColor = () => {
   return color; // 生成されたランダムな色を返す
 };
 
-const BackgroundAnimation = () => {
+const BackgroundAnimation = ({ quantity }: BackgroundAnimationProps) => {
+  console.log('quantity is:', quantity);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (event: MouseEvent) => {
@@ -38,7 +43,7 @@ const BackgroundAnimation = () => {
     const colorsArray = Array.from({ length: colorCount }, getRandomColor); // colorCount分の色を生成
 
     confetti({
-      particleCount: 200, // パーティクルの数
+      particleCount: quantity, // パーティクルの数
       spread: 70, // 花吹雪の広がり
       origin: {
         x: event.clientX / window.innerWidth, // クリックした位置のX座標
@@ -56,7 +61,8 @@ const BackgroundAnimation = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('click', handleClick);
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [quantity]);
 
   const backgroundPositionStyle = {
     backgroundPosition: `${(mousePosition.x / window.innerWidth) * 100}% ${(mousePosition.y / window.innerHeight) * 100}%`,

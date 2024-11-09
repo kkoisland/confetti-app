@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import { ChangeEvent, Dispatch, SetStateAction } from 'react';
 import confetti from 'canvas-confetti';
 import styles from './ConfettiLauncher.module.css';
 
-const ConfettiLauncher = () => {
-  const [quantity, setQuantity] = useState(100);
+interface ConfettiLauncherProps {
+  quantity: number;
+  setQuantity: Dispatch<SetStateAction<number>>;
+}
 
-  const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+const ConfettiLauncher = ({ quantity, setQuantity }: ConfettiLauncherProps) => {
+  // const [quantity, setQuantity] = useState(100);
+
+  const handleQuantityChange = (event: ChangeEvent<HTMLInputElement>) => {
     setQuantity(parseInt(event.target.value, 10));
   };
 
@@ -17,7 +22,7 @@ const ConfettiLauncher = () => {
       origin: { x: 0.5, y: 0.8 }, // 画面の中央より下の位置から発射
     });
   };
-
+  console.log('quantity changed2:', quantity);
   return (
     <div className={styles.launcher}>
       <div>
