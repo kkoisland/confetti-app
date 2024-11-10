@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import confetti from 'canvas-confetti';
+import { useDispatch, useSelector } from 'react-redux';
+import { setQuantity } from '../../store/slices/quantitySlice';
+import { RootState } from '../../store';
 import styles from './ConfettiLauncher.module.css';
 
 const ConfettiLauncher = () => {
-  const [quantity, setQuantity] = useState(100);
+  const dispatch = useDispatch();
+  const quantity = useSelector((state: RootState) => state.quantity.value);
 
   const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuantity(parseInt(event.target.value, 10));
+    const newQuantity = Number(event.target.value);
+    dispatch(setQuantity(newQuantity));
   };
 
   const launchConfetti = () => {
