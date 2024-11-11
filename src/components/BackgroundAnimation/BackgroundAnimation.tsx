@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useAtom } from 'jotai';
+import { quantityAtom } from '../../store/atoms';
 import confetti from 'canvas-confetti';
 import styles from './BackgroundAnimation.module.css';
 
@@ -14,6 +16,7 @@ const getRandomColor = () => {
 };
 
 const BackgroundAnimation = () => {
+  const [quantity] = useAtom(quantityAtom);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (event: MouseEvent) => {
@@ -63,9 +66,12 @@ const BackgroundAnimation = () => {
   };
 
   return (
-    <div className={styles.background} style={backgroundPositionStyle}>
-      {/* 背景の動的アニメーションを追加する領域 */}
+    <div>
+      <p>Background Animation Quantity: {quantity}</p>
     </div>
+    // <div className={styles.background} style={backgroundPositionStyle}>
+    //   {/* 背景の動的アニメーションを追加する領域 */}
+    // </div>
   );
 };
 

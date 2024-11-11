@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'jotai';
 import ConfettiLauncherPage from './pages/ConfettiLauncherPage';
 import BackgroundAnimationPage from './pages/BackgroundAnimationPage';
 import ScrollAnimationPage from './pages/ScrollAnimationPage';
@@ -24,20 +25,22 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
-      s
-      <div className={`App ${theme === 'dark' ? 'theme-dark' : 'theme-light'} shared-styles`}>
-        <Header theme={theme} toggleTheme={toggleTheme} />
-        <Routes>
-          <Route path="/confetti" element={<ConfettiLauncherPage />} />
-          <Route path="/background" element={<BackgroundAnimationPage />} />
-          <Route path="/scroll" element={<ScrollAnimationPage />} />
-          <Route path="/gallery" element={<InteractiveGalleryPage />} />
-          <Route path="/" element={<ConfettiLauncherPage />} /> {/* デフォルトページ */}
-        </Routes>
-        <Footer theme={theme} />
-      </div>
-    </BrowserRouter>
+    <Provider>
+      <BrowserRouter>
+        s
+        <div className={`App ${theme === 'dark' ? 'theme-dark' : 'theme-light'} shared-styles`}>
+          <Header theme={theme} toggleTheme={toggleTheme} />
+          <Routes>
+            <Route path="/confetti" element={<ConfettiLauncherPage />} />
+            <Route path="/background" element={<BackgroundAnimationPage />} />
+            <Route path="/scroll" element={<ScrollAnimationPage />} />
+            <Route path="/gallery" element={<InteractiveGalleryPage />} />
+            <Route path="/" element={<ConfettiLauncherPage />} /> {/* デフォルトページ */}
+          </Routes>
+          <Footer theme={theme} />
+        </div>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
