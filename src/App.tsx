@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ConfettiLauncherPage from './pages/ConfettiLauncherPage';
 import BackgroundAnimationPage from './pages/BackgroundAnimationPage';
 import ScrollAnimationPage from './pages/ScrollAnimationPage';
