@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  height: 70vh; /* 高さを70vhに設定して、画面に配置 */
+  overflow: hidden; /* 丸が画面外に出ないようにする */
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* クリック時に少し大きくなるアニメーション */
+}
+
+.circle:hover {
+  transform: scale(1.1); /* ホバー時に少し大きくする */
+}
