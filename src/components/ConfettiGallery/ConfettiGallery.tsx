@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './ConfettiGallery.module.css';
+// import BasicConfetti from '../ConfettiEffects/BasicConfetti'; // BasicConfettiをインポート
 
 const getRandomSize = () => Math.floor(Math.random() * (200 - 100 + 1)) + 100; // ランダムな大きさ
 
@@ -11,6 +12,7 @@ const ConfettiGallery = () => {
     'rgba(255, 102, 0, 0.5)', // オレンジ
     'rgba(255, 51, 51, 0.5)', // 赤
     'rgba(51, 51, 255, 0.5)', // 青
+    'rgba(255, 165, 0, 0.5)', // 黄色
   ];
 
   const columns = 3; // 列数
@@ -24,12 +26,12 @@ const ConfettiGallery = () => {
     const row = Math.floor(index / columns); // 行を計算
     const column = index % columns; // 列を計算
 
-    // 少しランダムにずらす
-    const randomOffsetX = Math.random() * 20 - 10; // -10%〜10%の間でランダムにずらす
-    const randomOffsetY = Math.random() * 20 - 10; // -10%〜10%の間でランダムにずらす
+    // 少しランダムにずらす(重なり)
+    const randomOffsetX = Math.random() * 10 - 5;
+    const randomOffsetY = Math.random() * 10 - 5;
 
     return {
-      top: `${row * 40 + 10 + randomOffsetY}%`, // 40%の間隔で配置し、少しランダムにずらす
+      top: `${row * 28 + 10 + randomOffsetY}%`, // 色を増やす場合、ここで高さを調節する
       left: `${column * 30 + 10 + randomOffsetX}%`, // 30%の間隔で配置し、少しランダムにずらす
     };
   };
