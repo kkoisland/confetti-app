@@ -1,8 +1,11 @@
+import React from 'react';
+import ScrollAnimation from '../components/ScrollAnimation/ScrollAnimation';
+
 const ScrollAnimationPage = () => {
   return (
     <div>
-      <h1>Scroll Animation</h1>
-      <p>スクロールアニメーションを追加</p>
+      <h1>Scroll Animation Page</h1>
+      <ScrollAnimation />
     </div>
   );
 };

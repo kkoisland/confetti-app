@@ -25,7 +25,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      s
       <div className={`App ${theme === 'dark' ? 'theme-dark' : 'theme-light'} shared-styles`}>
         <Header theme={theme} toggleTheme={toggleTheme} />
         <Routes>

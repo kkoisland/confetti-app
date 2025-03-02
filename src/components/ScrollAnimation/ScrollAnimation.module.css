@@ -1,0 +1,24 @@
+.container {
+  height: 2000px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* 下部に配置 */
+  text-align: center;
+  padding-bottom: 100px; /* 下にスペースを追加 */
+}
+
+.text {
+  margin-bottom: 20px;
+}
+
+.circle {
+  width: 150px;
+  height: 150px;
+  background-color: #ffcc00;
+  border-radius: 50%; /* 丸くする */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
