@@ -23,6 +23,7 @@ const ConfettiGallery = () => {
 
   const [showBasicConfetti, setShowBasicConfetti] = useState(false);
   const [showFireworks, setShowFireworks] = useState(false);
+  const [confettiName, setConfettiName] = useState<string>('');
 
   // グリッド状に配置するための計算
   const getPosition = (index: number) => {
@@ -47,17 +48,31 @@ const ConfettiGallery = () => {
   const handleCircleClick = (color: string) => {
     if (color === colors.yellow) {
       setShowBasicConfetti(false);
-      setTimeout(() => setShowBasicConfetti(true), 0); // 即時に発火させるため、タイムアウトを0msに設定
+      setTimeout(() => {
+        setShowBasicConfetti(true);
+        setConfettiName('This is Basic Confetti!');
+      }, 0);
     }
     if (color === colors.lightBlue) {
       setShowFireworks(false);
-      setTimeout(() => setShowFireworks(true), 0);
+      setTimeout(() => {
+        setShowFireworks(true);
+        setConfettiName('This is Fireworks Confetti!');
+      }, 0);
     }
   };
 
   return (
     <div>
-      <button onClick={randomizePositions}>Shuffle Circles</button>
+      <button
+        onClick={() => {
+          randomizePositions();
+          setConfettiName('');
+        }}
+      >
+        Shuffle Circles
+      </button>
+      <h3>{confettiName}</h3>
       <div className={styles.container}>
         {Object.entries(colors).map(([colorName, color], index) => {
           const position = getPosition(index);
