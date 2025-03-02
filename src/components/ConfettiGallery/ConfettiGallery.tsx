@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './ConfettiGallery.module.css';
-// import BasicConfetti from '../ConfettiEffects/BasicConfetti'; // BasicConfettiをインポート
+import BasicConfetti from '../ConfettiEffects/BasicConfetti';
 
 const getRandomSize = () => Math.floor(Math.random() * (200 - 100 + 1)) + 100; // ランダムな大きさ
 
@@ -21,6 +21,8 @@ const ConfettiGallery = () => {
     colors.map(() => getRandomSize()) // 初期サイズをランダムに
   );
 
+  const [showBasicConfetti, setShowBasicConfetti] = useState(false);
+
   // グリッド状に配置するための計算
   const getPosition = (index: number) => {
     const row = Math.floor(index / columns); // 行を計算
@@ -38,6 +40,13 @@ const ConfettiGallery = () => {
 
   const randomizePositions = () => {
     setPositions(colors.map(() => getRandomSize())); // ランダムにサイズを更新
+    setShowBasicConfetti(false);
+  };
+
+  const handleCircleClick = (color: string) => {
+    if (color === 'rgba(255, 165, 0, 0.5)') {
+      setShowBasicConfetti(true);
+    }
   };
 
   return (
@@ -57,10 +66,12 @@ const ConfettiGallery = () => {
                 top: position.top,
                 left: position.left,
               }}
+              onClick={() => handleCircleClick(color)}
             />
           );
         })}
       </div>
+      {showBasicConfetti && <BasicConfetti />}
     </div>
   );
 };
