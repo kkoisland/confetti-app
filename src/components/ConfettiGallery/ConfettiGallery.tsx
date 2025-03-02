@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import styles from './ConfettiGallery.module.css';
 
 const getRandomSize = () => Math.floor(Math.random() * (200 - 100 + 1)) + 100; // ランダムな大きさ
@@ -12,10 +12,12 @@ const ConfettiGallery = () => {
     'rgba(255, 51, 51, 0.5)', // 赤
     'rgba(51, 51, 255, 0.5)', // 青
   ];
-  // const radius = [120, 150, 150, 130, 140, 110]; // 丸の大きさをランダムに設定
-  const radius = colors.map(() => getRandomSize());
 
   const columns = 3; // 列数
+
+  const [positions, setPositions] = useState(
+    colors.map(() => getRandomSize()) // 初期サイズをランダムに
+  );
 
   // グリッド状に配置するための計算
   const getPosition = (index: number) => {
@@ -32,24 +34,31 @@ const ConfettiGallery = () => {
     };
   };
 
+  const randomizePositions = () => {
+    setPositions(colors.map(() => getRandomSize())); // ランダムにサイズを更新
+  };
+
   return (
-    <div className={styles.container}>
-      {colors.map((color, index) => {
-        const position = getPosition(index);
-        return (
-          <div
-            key={index}
-            className={styles.circle}
-            style={{
-              backgroundColor: color,
-              width: `${radius[index]}px`,
-              height: `${radius[index]}px`,
-              top: position.top, // ランダムにずらした位置
-              left: position.left, // ランダムにずらした位置
-            }}
-          />
-        );
-      })}
+    <div>
+      <button onClick={randomizePositions}>Shuffle Circles</button>
+      <div className={styles.container}>
+        {colors.map((color, index) => {
+          const position = getPosition(index);
+          return (
+            <div
+              key={index}
+              className={styles.circle}
+              style={{
+                backgroundColor: color,
+                width: `${positions[index]}px`,
+                height: `${positions[index]}px`,
+                top: position.top,
+                left: position.left,
+              }}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
