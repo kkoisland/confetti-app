@@ -3,20 +3,18 @@ import styles from './ConfettiGallery.module.css';
 import BasicConfetti from '../ConfettiEffects/BasicConfetti';
 
 const getRandomSize = () => Math.floor(Math.random() * (200 - 100 + 1)) + 100; // ランダムな大きさ
+const columns = 3; // 列数
 
 const ConfettiGallery = () => {
-  const colors = [
-    'rgba(255, 102, 204, 0.5)', // ピンク
-    'rgba(51, 204, 51, 0.5)', // 緑
-    'rgba(102, 204, 255, 0.5)', // 水色
-    'rgba(255, 102, 0, 0.5)', // オレンジ
-    'rgba(255, 51, 51, 0.5)', // 赤
-    'rgba(51, 51, 255, 0.5)', // 青
-    'rgba(255, 165, 0, 0.5)', // 黄色
-  ];
+  const yellow = 'rgba(255, 165, 0, 0.5)';
+  const pink = 'rgba(255, 102, 204, 0.5)';
+  const green = 'rgba(51, 204, 51, 0.5)';
+  const lightBlue = 'rgba(102, 204, 255, 0.5)';
+  const orange = 'rgba(255, 102, 0, 0.5)';
+  const red = 'rgba(255, 51, 51, 0.5)';
+  const blue = 'rgba(51, 51, 255, 0.5)';
 
-  const columns = 3; // 列数
-
+  const colors = [yellow, pink, green, lightBlue, orange, red, blue];
   const [positions, setPositions] = useState(
     colors.map(() => getRandomSize()) // 初期サイズをランダムに
   );
@@ -44,8 +42,11 @@ const ConfettiGallery = () => {
   };
 
   const handleCircleClick = (color: string) => {
-    if (color === 'rgba(255, 165, 0, 0.5)') {
-      setShowBasicConfetti(true);
+    if (color === yellow) {
+      setShowBasicConfetti(false); // 最初にfalseにリセット
+      setTimeout(() => {
+        setShowBasicConfetti(true); // 再度trueにしてConfettiを発射
+      }, 0); // 即時に発火させるため、タイムアウトを0msに設定
     }
   };
 
