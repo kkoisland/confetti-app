@@ -3,9 +3,8 @@ import confetti from 'canvas-confetti';
 
 const FireworksConfetti = () => {
   useEffect(() => {
-    const duration = 15 * 1000; // 15秒
+    const duration = 5 * 1000; // 5 seconds
     const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
     const randomInRange = (min: number, max: number) => Math.random() * (max - min) + min;
 
@@ -20,13 +19,19 @@ const FireworksConfetti = () => {
 
       // 左側と右側からランダムに花火を発射
       confetti({
-        ...defaults,
         particleCount,
+        startVelocity: 30,
+        spread: 360,
+        ticks: 60,
+        zIndex: 0,
         origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
       });
       confetti({
-        ...defaults,
         particleCount,
+        startVelocity: 30,
+        spread: 360,
+        ticks: 60,
+        zIndex: 0,
         origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
       });
     }, 250);
