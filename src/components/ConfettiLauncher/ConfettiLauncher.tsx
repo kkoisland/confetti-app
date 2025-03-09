@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Button, Slider, Form, Space, Typography } from 'antd';
 import confetti from 'canvas-confetti';
 import { confettiPresets } from '../../data/confettiOptions';
 
 const ConfettiLauncher = () => {
   const [quantity, setQuantity] = useState(confettiPresets.normal.particleCount);
 
-  const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuantity(Number(event.target.value));
+  const handleQuantityChange = (value: number) => {
+    setQuantity(value);
   };
 
   const launchConfetti = () => {
@@ -19,22 +20,17 @@ const ConfettiLauncher = () => {
   };
 
   return (
-    <div>
-      <div>
-        <label htmlFor="quantity">Quantity:</label>
-        <input
-          type="range"
-          id="quantity"
-          name="quantity"
-          min="10"
-          max="300"
-          value={quantity}
-          onChange={handleQuantityChange}
-        />
-        <span>{quantity} confettis</span>
-      </div>
-      <button onClick={launchConfetti}>Launch Confetti</button>
-    </div>
+    <Space direction="vertical" size="large" style={{ width: '100%', maxWidth: 400 }}>
+      <Form layout="vertical">
+        <Form.Item label="Quantity">
+          <Slider min={10} max={300} value={quantity} onChange={handleQuantityChange} />
+          <Typography.Text>{quantity} confettis</Typography.Text>
+        </Form.Item>
+      </Form>
+      <Button type="primary" onClick={launchConfetti}>
+        Launch Confetti
+      </Button>
+    </Space>
   );
 };
 

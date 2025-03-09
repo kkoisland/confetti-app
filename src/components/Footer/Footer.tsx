@@ -1,9 +1,10 @@
+import { Typography } from 'antd';
 import styles from './Footer.module.css';
 
 const Footer = ({ theme }: { theme: string }) => {
   return (
     <footer className={`${styles.footer} ${theme === 'dark' ? 'theme-dark' : 'theme-light'}`}>
-      <p>Footer Content</p>
+      <Typography.Title level={5}>© 2025 kkoisland</Typography.Title>
     </footer>
   );
 };

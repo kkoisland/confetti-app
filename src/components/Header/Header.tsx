@@ -1,4 +1,5 @@
-import styles from './Header.module.css';
+import { Tabs } from 'antd';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 interface HeaderProps {
   theme: string;
@@ -6,27 +7,36 @@ interface HeaderProps {
 }
 
 const Header = ({ theme, toggleTheme }: HeaderProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const items = [
+    { label: 'Confetti Launcher', key: '/' },
+    { label: 'Background Animation', key: '/background' },
+    { label: 'Scroll Animation', key: '/scroll' },
+    { label: 'Interactive Gallery', key: '/gallery' },
+  ];
+
   return (
-    <header className={styles.header}>
-      <nav className={styles.nav}>
-        <ul className={styles.navLinks}>
-          <li>
-            <a href="/">Confetti Launcher</a>
-          </li>
-          <li>
-            <a href="/background">Background Animation</a>
-          </li>
-          <li>
-            <a href="/scroll">Scroll Animation</a>
-          </li>
-          <li>
-            <a href="/gallery">Interactive Gallery</a>
-          </li>
-        </ul>
-      </nav>
+    <header style={{ display: 'flex', alignItems: 'center', padding: '10px 20px' }}>
+      <Tabs
+        activeKey={location.pathname}
+        onChange={(key) => navigate(key)}
+        items={items}
+        type="line"
+        centered
+      />
       <button
         onClick={toggleTheme}
-        className={`${styles.themeToggleButton} ${theme === 'dark' ? 'theme-dark' : 'theme-light'}`}
+        style={{
+          marginLeft: 'auto',
+          padding: '8px',
+          fontSize: '24px',
+          border: 'none', // 枠線を消す
+          background: 'none', // 背景色を消す
+          cursor: 'pointer', // マウスカーソルをポインターに
+          outline: 'none', // フォーカス時の枠を消す
+        }}
       >
         {theme === 'light' ? '☼' : '🌙'}
       </button>

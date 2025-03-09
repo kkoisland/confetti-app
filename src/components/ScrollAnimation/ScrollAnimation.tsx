@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Typography } from 'antd';
 import confetti from 'canvas-confetti';
 import styles from './ScrollAnimation.module.css';
 
@@ -43,10 +44,10 @@ const ScrollAndHoverConfetti = () => {
 
   return (
     <>
-      <h1>Scroll Down to the Bottom...</h1>
       <div className={styles.container}>
-        <h1>Then, Hover the Yellow Circle to See Big Stars!</h1>
-
+        <Typography.Title level={2}>
+          Then, Hover the Yellow Circle to See Big Stars!
+        </Typography.Title>
         <div style={{ height: '2000px' }}></div>
 
         {/* 丸いボタンにホバーでConfetti発生 */}

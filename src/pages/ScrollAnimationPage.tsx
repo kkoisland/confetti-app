@@ -1,9 +1,10 @@
+import { Typography } from 'antd';
 import ScrollAnimation from '../components/ScrollAnimation/ScrollAnimation';
 
 const ScrollAnimationPage = () => {
   return (
     <div>
-      <h1>Scroll Animation Page</h1>
+      <Typography.Title level={2}>Scroll Down to the Bottom...</Typography.Title>
       <ScrollAnimation />
     </div>
   );

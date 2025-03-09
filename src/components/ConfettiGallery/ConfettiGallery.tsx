@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button, Typography, Space } from 'antd';
 import styles from './ConfettiGallery.module.css';
 import BasicConfetti from '../ConfettiEffects/BasicConfetti';
 import FireworksConfetti from '../ConfettiEffects/FireworksConfetti';
@@ -56,68 +57,59 @@ const ConfettiGallery = () => {
   };
 
   const handleCircleClick = (color: string) => {
-    if (color === colors.yellow) {
-      setShowBasicConfetti(false);
-      setTimeout(() => {
+    setConfettiName('');
+    setShowBasicConfetti(false);
+    setShowFireworks(false);
+    setShowCherryBlossom(false);
+    setShowSnowConfetti(false);
+    setShowFreshLeavesConfetti(false);
+    setShowFallConfetti(false);
+    setShowChristmasStarsConfetti(false);
+
+    setTimeout(() => {
+      if (color === colors.yellow) {
         setShowBasicConfetti(true);
         setConfettiName('This is Basic Confetti!');
-      }, 0);
-    }
-    if (color === colors.blue) {
-      setShowFireworks(false);
-      setTimeout(() => {
+      }
+      if (color === colors.blue) {
         setShowFireworks(true);
         setConfettiName('This is Fireworks Confetti!');
-      }, 0);
-    }
-    if (color === colors.pink) {
-      setShowCherryBlossom(false);
-      setTimeout(() => {
+      }
+      if (color === colors.pink) {
         setShowCherryBlossom(true);
         setConfettiName('This is Cherry Blossom Confetti!');
-      }, 0);
-    }
-    if (color === colors.lightBlue) {
-      setShowSnowConfetti(false);
-      setTimeout(() => {
+      }
+      if (color === colors.lightBlue) {
         setShowSnowConfetti(true);
         setConfettiName('This is Snow Confetti!');
-      }, 0);
-    }
-    if (color === colors.green) {
-      setShowFreshLeavesConfetti(false);
-      setTimeout(() => {
+      }
+      if (color === colors.green) {
         setShowFreshLeavesConfetti(true);
         setConfettiName('This is Fresh Leaves Confetti!');
-      }, 0);
-    }
-    if (color === colors.orange) {
-      setShowFallConfetti(false);
-      setTimeout(() => {
+      }
+      if (color === colors.orange) {
         setShowFallConfetti(true);
         setConfettiName('This is Fall Confetti!');
-      }, 0);
-    }
-    if (color === colors.red) {
-      setShowChristmasStarsConfetti(false);
-      setTimeout(() => {
+      }
+      if (color === colors.red) {
         setShowChristmasStarsConfetti(true);
         setConfettiName('This is Christmas Stars Confetti!');
-      }, 0);
-    }
+      }
+    }, 0);
   };
 
   return (
-    <div>
-      <button
+    <Space direction="vertical" size="large" style={{ width: '100%' }}>
+      <Button
+        type="primary"
         onClick={() => {
           randomizePositions();
           setConfettiName('');
         }}
       >
         Shuffle Circles
-      </button>
-      <h3>{confettiName}</h3>
+      </Button>
+      <Typography.Title level={4}>{confettiName}</Typography.Title>
       <div className={styles.container}>
         {Object.entries(colors).map(([colorName, color], index) => {
           const position = getPosition(index);
@@ -144,7 +136,7 @@ const ConfettiGallery = () => {
       {showFreshLeavesConfetti && <FreshLeavesConfetti />}
       {showFallConfetti && <FallConfetti />}
       {showChristmasStarsConfetti && <ChristmasStarsConfetti />}
-    </div>
+    </Space>
   );
 };
 

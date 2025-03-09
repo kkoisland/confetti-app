@@ -1,8 +1,9 @@
+import { Typography } from 'antd';
 import ConfettiGallary from '../components/ConfettiGallery/ConfettiGallery';
 const ConfettiGalleryPage = () => {
   return (
     <div>
-      <h1>Confetti Gallery</h1>
+      <Typography.Title level={2}>Enjoy Confetti Gallery!</Typography.Title>
       <ConfettiGallary />
     </div>
   );
