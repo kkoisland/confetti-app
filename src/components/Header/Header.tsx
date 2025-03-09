@@ -1,11 +1,6 @@
 import styles from './Header.module.css';
 
-interface HeaderProps {
-  theme: string;
-  toggleTheme: () => void;
-}
-
-const Header = ({ theme, toggleTheme }: HeaderProps) => {
+const Header = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -24,12 +19,6 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
           </li>
         </ul>
       </nav>
-      <button
-        onClick={toggleTheme}
-        className={`${styles.themeToggleButton} ${theme === 'dark' ? 'theme-dark' : 'theme-light'}`}
-      >
-        {theme === 'light' ? '☼' : '🌙'}
-      </button>
     </header>
   );
 };

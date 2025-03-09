@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
 import { confettiPresets } from '../../data/confettiOptions';
-import styles from './ConfettiLauncher.module.css';
+import { Button } from 'antd';
 
 const ConfettiLauncher = () => {
   const [quantity, setQuantity] = useState(confettiPresets.normal.particleCount);
@@ -20,7 +20,7 @@ const ConfettiLauncher = () => {
   };
 
   return (
-    <div className={styles.launcher}>
+    <div>
       <div>
         <label htmlFor="quantity">Quantity:</label>
         <input
@@ -34,7 +34,9 @@ const ConfettiLauncher = () => {
         />
         <span>{quantity} confettis</span>
       </div>
-      <button onClick={launchConfetti}>Launch Confetti</button>
+      <Button type="primary" onClick={launchConfetti}>
+        Launch Confetti
+      </Button>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import styles from './Footer.module.css';
 
-const Footer = ({ theme }: { theme: string }) => {
+const Footer = () => {
   return (
-    <footer className={`${styles.footer} ${theme === 'dark' ? 'theme-dark' : 'theme-light'}`}>
+    <footer className={styles.footer}>
       <p>Footer Content</p>
     </footer>
   );

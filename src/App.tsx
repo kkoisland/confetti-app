@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ConfettiLauncherPage from './pages/ConfettiLauncherPage';
 import BackgroundAnimationPage from './pages/BackgroundAnimationPage';
@@ -9,24 +8,10 @@ import Footer from './components/Footer/Footer';
 import './App.css';
 
 function App() {
-  const [theme, setTheme] = useState(
-    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light'
-  );
-
-  useEffect(() => {
-    document.body.className = theme; // 'light' or 'dark'
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
-  };
-
   return (
     <BrowserRouter>
-      <div className={`App ${theme === 'dark' ? 'theme-dark' : 'theme-light'} shared-styles`}>
-        <Header theme={theme} toggleTheme={toggleTheme} />
+      <div className="App shared-styles">
+        <Header />
         <Routes>
           <Route path="/confetti" element={<ConfettiLauncherPage />} />
           <Route path="/background" element={<BackgroundAnimationPage />} />
@@ -34,7 +19,7 @@ function App() {
           <Route path="/gallery" element={<ConfettiGalleryPage />} />
           <Route path="/" element={<ConfettiLauncherPage />} /> {/* デフォルトページ */}
         </Routes>
-        <Footer theme={theme} />
+        <Footer />
       </div>
     </BrowserRouter>
   );
