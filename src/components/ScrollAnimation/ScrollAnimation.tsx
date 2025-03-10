@@ -43,9 +43,8 @@ const ScrollAndHoverConfetti = () => {
 
   return (
     <>
-      <h1>Scroll Down to the Bottom...</h1>
       <div className={styles.container}>
-        <h1>Then, Hover the Yellow Circle to See Big Stars!</h1>
+        <h2>Then, Hover the Yellow Circle to See Big Stars!</h2>
 
         <div style={{ height: '2000px' }}></div>
 
