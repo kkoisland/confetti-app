@@ -75,7 +75,6 @@ ConfettiApp/
 │   │
 │   ├── data/
 │   │   ├── confettiOptions.ts
-│   │   ├── galleryImages.ts
 │   │   ├── backgroundColors.ts
 │   │
 │   ├── utils/
