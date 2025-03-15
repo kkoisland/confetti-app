@@ -1,50 +1,105 @@
-# React + TypeScript + Vite
+# Confetti-App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based interactive app showcasing confetti effects, background animations, and scroll-triggered events.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repository.
+2. Install dependencies and start the development server:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+git clone git@github.com:YOUR_USERNAME/confetti-app.git
+cd confetti-app
+nvm use
+npm install
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Features
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Confetti Launcher: Launch confetti with adjustable quantity.
+- Background Animation: Interactive confetti effects following mouse movements and clicks.
+- Scroll Animation: Trigger confetti on scrolling and hovering.
+- Confetti Gallery: Explore different confetti styles by interacting with the gallery.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Tech Stack
+
+- Vite (Development environment and build tool)
+- React (Functional Components)
+- TypeScript (Type-safe development)
+- CSS Modules (Modular CSS for styling)
+- React Router (Client-side routing for navigation)
+- ESLint (Code linting)
+- Prettier (Code formatting)
+- Ant Design (UI components and theming)
+
+## Project Structure
+
+```bash
+ConfettiApp/
+│
+├── src/
+│   ├── theme.ts
+│   ├── components/
+│   │   ├── Header/
+│   │   │   ├── Header.tsx
+│   │   │   └── Header.module.css
+│   │   ├── Footer/
+│   │   │   ├── Footer.tsx
+│   │   │   └── Footer.module.css
+│   │   ├── ConfettiLauncher/
+│   │   │   ├── ConfettiLauncher.tsx
+│   │   │   └── ConfettiLauncher.module.css
+│   │   ├── BackgroundAnimation/
+│   │   │   ├── BackgroundAnimation.tsx
+│   │   │   └── BackgroundAnimation.module.css
+│   │   ├── ScrollAnimation/
+│   │   │   ├── ScrollAnimation.tsx
+│   │   │   └── ScrollAnimation.module.css
+│   │   └── ConfettiGallery/
+│   │       ├── ConfettiGallery.tsx
+│   │       └── ConfettiGallery.module.css
+│   │   ├── ConfettiEffects/
+│   │   │   ├── SnowConfetti.tsx
+│   │   │   ├── CherryBlossomConfetti.tsx
+│   │   │   ├── FreshLeavesConfetti.tsx
+│   │   │   ├── FireworksConfetti.tsx
+│   │   │   ├── FallConfetti.tsx
+│   │   │   └── ChristmasStarsConfetti.tsx
+│   │
+│   ├── pages/
+│   │   ├── ConfettiLauncherPage.tsx
+│   │   ├── BackgroundAnimationPage.tsx
+│   │   ├── ScrollAnimationPage.tsx
+│   │   └── ConfettiGalleryPage.tsx
+│   │
+│   ├── data/
+│   │   ├── confettiOptions.ts
+│   │   ├── galleryImages.ts
+│   │   ├── backgroundColors.ts
+│   │
+│   ├── utils/
+│   │   └── confettiOptions.ts
+│   │
+│   ├── App.tsx
+│   ├── App.css
+│   └── main.tsx
+│
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+│
+├── package.json
+└── tsconfig.json
 ```
+
+## Development History
+
+- Initial Setup
+- Page & Routing Implementation
+  - Confetti Launcher
+  - Background Animation
+  - Scroll Animation
+  - Confetti Gallery
+- UI and Theme Customization
+- GitHub Pages Deployment
