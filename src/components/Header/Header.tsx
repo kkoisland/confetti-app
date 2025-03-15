@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 
 interface HeaderProps {
@@ -11,16 +12,16 @@ const Header = ({ theme, toggleTheme }: HeaderProps) => {
       <nav className={styles.nav}>
         <ul className={styles.navLinks}>
           <li>
-            <a href="/">Confetti Launcher</a>
+            <Link to="/">Confetti Launcher</Link>
           </li>
           <li>
-            <a href="/background">Background Animation</a>
+            <Link to="/background">Background Animation</Link>
           </li>
           <li>
-            <a href="/scroll">Scroll Animation</a>
+            <Link to="/scroll">Scroll Animation</Link>
           </li>
           <li>
-            <a href="/gallery">Interactive Gallery</a>
+            <Link to="/gallery">Interactive Gallery</Link>
           </li>
         </ul>
       </nav>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import ConfettiLauncherPage from './pages/ConfettiLauncherPage';
 import BackgroundAnimationPage from './pages/BackgroundAnimationPage';
 import ScrollAnimationPage from './pages/ScrollAnimationPage';
@@ -24,7 +24,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className={`App ${theme === 'dark' ? 'theme-dark' : 'theme-light'} shared-styles`}>
         <Header theme={theme} toggleTheme={toggleTheme} />
         <Routes>
@@ -36,7 +36,7 @@ function App() {
         </Routes>
         <Footer theme={theme} />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

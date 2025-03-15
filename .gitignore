@@ -6,22 +6,30 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+*storybook.log
 
-node_modules
+# Build output
 dist
 dist-ssr
+
+# Dependency directories
+node_modules/
+
+# Local environment files
 *.local
 
+# TypeScript cache
+*.tsbuildinfo
+
 # Editor directories and files
-.vscode/*
+.vscode/
 !.vscode/extensions.json
 .idea
 .DS_Store
+
+# Miscellaneous project files
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-node_modules/
-
-*storybook.log
