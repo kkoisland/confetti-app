@@ -2,6 +2,10 @@
 
 A React-based interactive app showcasing confetti effects, background animations, and scroll-triggered events.
 
+## Demo
+
+[View the live site here](https://kkoisland.github.io/confetti-app/)
+
 ## Setup
 
 1. Clone the repository.
